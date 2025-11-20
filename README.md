@@ -276,7 +276,7 @@ int main(void)
    Lcd_HandleTypeDef lcd;
    lcd = Lcd_create(ports, pins, GPIOB, GPIO_PIN_0, GPIOB, GPIO_PIN_1, LCD_4_BIT_MODE);
    Lcd_cursor(&lcd, 0,1);
-   Lcd_string(&lcd, "Logesh B");
+   Lcd_string(&lcd, "BARATHRAJ K");
 
   while (1)
   {
@@ -412,11 +412,11 @@ void assert_failed(uint8_t *file, uint32_t line)
 
 ```
 ## Output screen shots of proteus  :
- <img width="1919" height="1199" alt="Screenshot 2025-10-04 144350" src="https://github.com/user-attachments/assets/b7853817-d728-4f9f-b6f4-341f9c8f36bb" />
+<img width="1900" height="1334" alt="image" src="https://github.com/user-attachments/assets/0aba6950-1f7a-4c93-9962-7b8320eb0014" />
 
  
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
- <img width="1024" height="760" alt="image" src="https://github.com/user-attachments/assets/251eda52-32b9-4bca-b4e4-22355455c0e6" />
+<img width="1217" height="843" alt="image" src="https://github.com/user-attachments/assets/45f811c8-6cd5-423f-a7aa-b73c249a57f3" />
 
 ## Result :
 Interfacing a lcd display with ARM microcontroller are simulated in proteus and the results are verified.
