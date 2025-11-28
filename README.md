@@ -1,7 +1,5 @@
 # EXPERIMENT--04-INTERFACING-AN16X2-LCD-DISPLAY-WITH-ARM AND DISPLAY STRING
 
-## Name: PREM KUMAR S
-## RegisterNumber: 212223240125
 
  ## Aim: To Interface a 16X2 LCD display to ARM controller  , and simulate it in Proteus 
 ## Components required: STM32 CUBE IDE, Proteus 8 simulator .
@@ -175,7 +173,8 @@ https://engineeringxpert.com/wp-content/uploads/2022/04/26.png
 
 
 ## STM 32 CUBE PROGRAM :
-```.c
+~~~
+
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
@@ -184,9 +183,9 @@ https://engineeringxpert.com/wp-content/uploads/2022/04/26.png
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
+  * Copyright (c) 2024 STMicroelectronics.
   * All rights reserved.
-  *BARATHRAJ K
+  *
   * This software is licensed under terms that can be found in the LICENSE file
   * in the root directory of this software component.
   * If no LICENSE file comes with this software, it is provided AS-IS.
@@ -242,9 +241,7 @@ static void MX_GPIO_Init(void);
   */
 int main(void)
 {
-
-  /* USER CODE BEGIN 1 */
-
+	  /* USER CODE BEGIN 1 */
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -266,27 +263,21 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
+  Lcd_PortType ports[] = { GPIOA, GPIOA, GPIOA, GPIOA };
+      Lcd_PinType pins[] = {GPIO_PIN_3, GPIO_PIN_2, GPIO_PIN_1, GPIO_PIN_0};
+      Lcd_HandleTypeDef lcd;
+      lcd = Lcd_create(ports, pins, GPIOB, GPIO_PIN_0, GPIOB, GPIO_PIN_1, LCD_4_BIT_MODE);
+      Lcd_cursor(&lcd, 0,1);
+      Lcd_string(&lcd, "");
+      Lcd_cursor(&lcd, 1,1);
+      Lcd_string(&lcd, "1191");
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  Lcd_PortType ports[] = { GPIOA, GPIOA, GPIOA, GPIOA };
-   Lcd_PinType pins[] = {GPIO_PIN_3, GPIO_PIN_2, GPIO_PIN_1, GPIO_PIN_0};
-   Lcd_HandleTypeDef lcd;
-   lcd = Lcd_create(ports, pins, GPIOB, GPIO_PIN_0, GPIOB, GPIO_PIN_1, LCD_4_BIT_MODE);
-   Lcd_cursor(&lcd, 0,1);
-   Lcd_string(&lcd, "BARATHRAJ K");
-
   while (1)
   {
     /* USER CODE END WHILE */
-	  for ( int x = 1; x <= 200 ; x++ )
-	  	 	  {
-	  		  Lcd_cursor(&lcd, 1,7);
-	  	 	  Lcd_int(&lcd, x);
-	  	 	  HAL_Delay (1000);
-	  	 	  }
 
     /* USER CODE BEGIN 3 */
   }
@@ -342,9 +333,8 @@ void SystemClock_Config(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-  /* USER CODE BEGIN MX_GPIO_Init_1 */
-
-  /* USER CODE END MX_GPIO_Init_1 */
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
@@ -370,9 +360,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /* USER CODE BEGIN MX_GPIO_Init_2 */
-
-  /* USER CODE END MX_GPIO_Init_2 */
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
@@ -393,7 +382,8 @@ void Error_Handler(void)
   }
   /* USER CODE END Error_Handler_Debug */
 }
-#ifdef USE_FULL_ASSERT
+
+#ifdef  USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.
@@ -410,12 +400,19 @@ void assert_failed(uint8_t *file, uint32_t line)
 }
 #endif /* USE_FULL_ASSERT */
 
-```
+~~~
+
+
+
+
+
 
  
+ 
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
-<img width="1217" height="843" alt="image" src="https://github.com/user-attachments/assets/45f811c8-6cd5-423f-a7aa-b73c249a57f3" />
+ <img width="944" height="663" alt="image" src="https://github.com/user-attachments/assets/a9ffa714-d389-4f34-b53b-f3ac5fbbe69e" />
 
+ 
+ 
 ## Result :
 Interfacing a lcd display with ARM microcontroller are simulated in proteus and the results are verified.
-
